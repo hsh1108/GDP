@@ -4,8 +4,8 @@
 if [ ! -r data/dataset ]
 then
     echo "Downloading Geomagnetic Disturbance dataset."
-    mkdir -p data/dataset
-    pushd data/dataset
+    mkdir -p data/
+    pushd data/
     wget --progress=bar \
         -r 'https://docs.google.com/uc?export=download&id=12r-BtDGb_8L0z5bHpyP6xwBx-r2JRp1-' \
         -O dataset.zip
