@@ -25,7 +25,7 @@ class Config(object):
     LR_DECAY_EPOCH = 10
     HIDDEN_LAYER_SIZE = 96
     DISPLAY_STEP = 40
-    SAVE_STEP = 1000
+    SAVE_STEP = 100
     SAVE_SUMMARY = False
     USE_JSON = True
 
