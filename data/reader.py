@@ -10,6 +10,8 @@ class DataReader(object):
         if os.path.exists(dataset_dir / 'train.json') and os.path.exists(dataset_dir / 'valid.json') and use_json:
             self.X_train, self.Y_train = self._load_train_data(dataset_dir)
             self.X_valid, self.Y_valid = self._load_valid_data(dataset_dir)
+            if np.shape(self.X_train)[1] != sampling_size:
+                self._preprocess_csv_to_json(dataset_dir, sampling_minute, sampling_size)
         else:
             self._preprocess_csv_to_json(dataset_dir, sampling_minute, sampling_size)
 

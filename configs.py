@@ -30,10 +30,10 @@ class Config(object):
     USE_JSON = True
 
     """ data settings """
-    BATCH_SIZE = 100
+    BATCH_SIZE = 96
     INPUT_SIZE = 7
-    SAMPLING_MINUTE = 30
-    SAMPLING_SIZE = 50
+    SAMPLING_MINUTE = 60
+    SAMPLING_SIZE = 16
     TARGET_SIZE = 10
 
     def display(self):
