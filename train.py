@@ -64,6 +64,7 @@ def main(FLAGS):
                 valid_predict = sess.run(output_class, feed_dict={model._inputs: valid_x})
                 valid_eval = FLAGS.Weighted_RMSE(valid_y, valid_predict)
 
+
                 if FLAGS.SAVE_SUMMARY:
                     writer.add_summary(summary, step)
 
@@ -85,6 +86,7 @@ def main(FLAGS):
                           (epoch, num, dataset.train_batch_num, rate, remaining / 60))
                     print("- Loss =", loss)
                     print("- Weighted RMSE on validation =", valid_eval)
+                    print("- Accuracy on validation =", np.sum(valid_y==valid_predict)/np.shape(valid_y)[0])
                     print("- Best(but not saved) Weight RMSE on validation =", saved_eval)
                     print("- Best model on validation at epoch =", saved_epoch, "step =", saved_num)
                     print("- Min kp-index on validation set :", np.min(valid_predict))

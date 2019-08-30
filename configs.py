@@ -25,15 +25,15 @@ class Config(object):
     LR_DECAY_EPOCH = 10
     HIDDEN_LAYER_SIZE = 96
     DISPLAY_STEP = 40
-    SAVE_STEP = 100
+    SAVE_STEP = 200
     SAVE_SUMMARY = False
-    USE_JSON = True
+    USE_JSON = False
 
     """ data settings """
     BATCH_SIZE = 96
     INPUT_SIZE = 7
-    SAMPLING_MINUTE = 60
-    SAMPLING_SIZE = 16
+    SAMPLING_MINUTE = 30
+    SAMPLING_SIZE = 20
     TARGET_SIZE = 10
 
     def display(self):

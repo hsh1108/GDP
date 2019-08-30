@@ -25,6 +25,8 @@ class DataReader(object):
         self.valid_batch_index = 0
         print("- Train data size =", self.train_data_size)
         print("- Validation data size =", self.valid_data_size)
+        assert self.train_data_size == np.shape(self.Y_train)[0]
+        assert self.valid_data_size == np.shape(self.Y_valid)[0]
 
         # Shuffle the train data.
         train_data_index = np.arange(self.train_data_size)
@@ -68,7 +70,7 @@ class DataReader(object):
         # Use 2013 year data to validation set.
         valid_begin = datetime.datetime(2013, 1, 1, 0, 0)
         train_begin = datetime.datetime(1999, 1, 1, 0, 0) + datetime.timedelta(
-            minutes=(np.ceil((sampling_minute * sampling_size) // 180)) * 180)
+            minutes=(np.ceil((sampling_minute * sampling_size) / 180)) * 180)
         train_end = valid_begin - datetime.timedelta(minutes=sampling_minute * sampling_size)
         train_end_date = (train_end - datetime.datetime(2012, 1, 1, 0, 0)).days + 1
         train_end_hour = (train_end - datetime.datetime(2012, 1, 1, 0, 0)).seconds // 3600

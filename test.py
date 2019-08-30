@@ -28,6 +28,7 @@ def main(FLAGS):
         saver.restore(sess, tf.train.latest_checkpoint(FLAGS.MODEL_PATH))
         test_x = testset.X_test
         test_predict = sess.run(output_class, feed_dict={model._inputs: test_x})
+
         f = open('output.csv', 'w', encoding='utf-8')
         wr = csv.writer(f)
         for date in np.arange(365):
